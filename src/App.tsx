@@ -1,16 +1,25 @@
 import React from "react";
+import Button from "./Components/Button";
+import List from "./Components/List";
 import "./App.css";
 
 interface AppProps {
-  title: string;
+  user: { applicationName: string; hobbies: ListItem[] };
 }
 
-const App = (props: AppProps) => {
-  return (
-    <div>
-      <h1>Hello {props.title}</h1>
-    </div>
-  );
-};
+export default function App({ user }: AppProps) {
+  const [isLoggedIn, setLoggedIn] = React.useState(true);
 
-export default App;
+  return (
+    <>
+      <h1>Welcome to {user.applicationName}</h1>
+      <Button
+        title={isLoggedIn ? "Log out" : "Log in"}
+        onClick={() => setLoggedIn(!isLoggedIn)}
+      />
+      {isLoggedIn ? <List type="hobbies" data={user.hobbies} /> : <LogIn />}
+    </>
+  );
+}
+
+const LogIn = () => <p>Please log in</p>;
