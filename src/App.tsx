@@ -12,12 +12,19 @@ export default function App({ user }: AppProps) {
 
   return (
     <>
-      <h1>Welcome to {user.applicationName}</h1>
-      <Button
-        title={isLoggedIn ? "Log out" : "Log in"}
-        onClick={() => setLoggedIn(!isLoggedIn)}
-      />
-      {isLoggedIn ? <List type="hobbies" data={user.hobbies} /> : <LogIn />}
+      <header>
+        <h1>Welcome to {user.applicationName}</h1>
+        <nav>
+          <Button
+            title={isLoggedIn ? "Log out" : "Log in"}
+            onClick={() => setLoggedIn(!isLoggedIn)}
+          />
+        </nav>
+      </header>
+      <main>
+        {isLoggedIn ? <List type="hobbies" data={user.hobbies} /> : <LogIn />}
+      </main>
+      <footer>&nbsp;</footer>
     </>
   );
 }
