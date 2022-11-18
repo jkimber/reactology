@@ -1,6 +1,7 @@
 * {
-  padding: 0;
+  font-family: Asap, sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 html {
@@ -18,9 +19,9 @@ li {
 }
 
 button {
-  padding: 5px 10px;
   background: white;
   border: 1px solid black;
+  padding: 5px 10px;
 }
 
 button:hover {
